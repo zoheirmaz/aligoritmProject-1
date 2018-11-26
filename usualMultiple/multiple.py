@@ -1,16 +1,20 @@
 import time
+from pprint import pprint
 
 import globalVar
 
 
-def mul(X, Y):
+def mul(X, Y,returned_value):
     result = [[0 for x in range(Y[0].__len__())] for y in range(X.__len__())]
     start_time = time.time()
-    for i in range(len(X)):
+    ln1 = len(X)
+    ln2 = len(Y[0])
+    ln3 = len(Y)
+    for i in range(ln1):
 
-        for j in range(len(Y[0])):
+        for j in range(ln2):
 
-            for k in range(len(Y)):
+            for k in range(ln3):
                 result[i][j] += X[i][k] * Y[k][j]
 
     index = str(X.__len__())
@@ -19,4 +23,6 @@ def mul(X, Y):
 
     print("--- %s seconds ---" % globalVar.normMultTime)
 
-    return result
+    returned_value=result
+    print(returned_value)
+    # return result

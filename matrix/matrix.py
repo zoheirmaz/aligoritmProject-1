@@ -1,5 +1,5 @@
 import time
-
+import threading
 from globalVar import time_dict
 from exceptions.Error import MatrixSummationException
 
@@ -59,7 +59,7 @@ class Matrix:
 
     def __mul__(self, other):
 
-        if self.row <= 1024:
+        if self.row <= 256:
 
             result = [[0 for x in range(other.matrix[0].__len__())] for y in range(self.matrix.__len__())]
             start_time = time.time()

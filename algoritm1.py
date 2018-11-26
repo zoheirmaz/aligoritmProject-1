@@ -1,6 +1,6 @@
 import random
 from pprint import pprint
-
+from multiprocessing import Process, Value, Array
 from exceptions.Error import MatrixMultipltionException
 from globalVar import time_dict, normMultTime
 from matrix.matrix import Matrix
@@ -81,6 +81,8 @@ while cont:
         print(e.message)
         cont = True
 
+print('Computing ...')
+
 a = [[random.randint(0, 10) for x in range(col1)] for y in range(row1)]
 b = [[random.randint(0, 10) for x in range(col2)] for y in range(row2)]
 
@@ -88,6 +90,8 @@ a = Matrix(a)
 b = Matrix(b)
 
 pprint(ml.mul(a.matrix, b.matrix))
+
+p = Process(target=f, args=(num, arr))
 
 ls = FixMatrix(a, b)
 a = ls[0]
