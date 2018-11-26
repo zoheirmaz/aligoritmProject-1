@@ -1,0 +1,3 @@
+time_dict = {}
+
+normMultTime = {}
