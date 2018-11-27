@@ -72,15 +72,10 @@ class Matrix:
 
             time_dict[str(self.row)] = (time.time() - start_time)
 
-            # print("--- %s seconds ---" % time_dict)
-
-            # if 3 in self.matrix[0]:
-            #     print(True)
-
             finalMatrix = Matrix(result)
 
         else:
-            index=str(self.row)
+            index = str(self.row)
 
             self = devide(self)
             other = devide(other)
@@ -106,14 +101,13 @@ class Matrix:
 
             time_dict[index] = (time.time() - start_time)
 
-            # print("--- %s seconds ---" % time_dict[str(self.row)])
-
             finalMatrix = mergeMatrix(finalMatrix)
 
         return finalMatrix
 
 
 # -------------------------------------------------------------------------------
+
 
 def mergeMatrix(matrix):
     row = matrix.matrix[0][0].row

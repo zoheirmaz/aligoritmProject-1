@@ -4,7 +4,7 @@ from pprint import pprint
 import globalVar
 
 
-def mul(X, Y,returned_value):
+def mul(X, Y):
     result = [[0 for x in range(Y[0].__len__())] for y in range(X.__len__())]
     start_time = time.time()
     ln1 = len(X)
@@ -23,6 +23,4 @@ def mul(X, Y,returned_value):
 
     print("--- %s seconds ---" % globalVar.normMultTime)
 
-    returned_value=result
-    print(returned_value)
-    # return result
+    return result

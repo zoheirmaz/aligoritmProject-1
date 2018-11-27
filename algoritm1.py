@@ -8,10 +8,6 @@ from test import Plot
 from usualMultiple import multiple as ml
 
 
-# start_time = time.time()
-
-
-
 def New2DList(row, column):
     return [[0 for x in range(column)] for y in range(row)]
 
@@ -42,23 +38,19 @@ def FixMatrix(matrix1, matrix2):
     for i in range(count):
         for x in range(matrix1.matrix.__len__()):
             matrix1.matrix[x].append(0)
-            # pprint(matrix1.matrix)
 
     count = tmp - matrix2.matrix[0].__len__()
     for i in range(count):
         for x in range(matrix2.matrix.__len__()):
             matrix2.matrix[x].append(0)
-            # pprint(matrix2.matrix)
 
     count = tmp - matrix1.matrix.__len__()
     for i in range(count):
         matrix1.matrix.append([0 for x in range(tmp)])
-    # pprint(matrix1.matrix)
 
     count = tmp - matrix2.matrix.__len__()
     for i in range(count):
         matrix2.matrix.append([0 for x in range(tmp)])
-    # pprint(matrix1.matrix)
 
     return [matrix1, matrix2]
 
@@ -66,40 +58,39 @@ def FixMatrix(matrix1, matrix2):
 # ------------------ main --------------------
 
 
-cont = True
-while cont:
-    row1 = int(input('Enter row number of 1st matrix: '))
-    col1 = int(input('Enter column number of 1st matrix: '))
-    row2 = int(input('Enter row number of 2nd matrix: '))
-    col2 = int(input('Enter column number of 2nd matrix: '))
-    try:
-        if col1 != row2:
-            raise MatrixMultipltionException
-        else:
-            cont = False
-    except MatrixMultipltionException as e:
-        print(e.message)
-        cont = True
+if __name__ == '__main__':
 
-print('Computing ...')
+    cont = True
+    while cont:
+        row1 = int(input('Enter row number of 1st matrix: '))
+        col1 = int(input('Enter column number of 1st matrix: '))
+        row2 = int(input('Enter row number of 2nd matrix: '))
+        col2 = int(input('Enter column number of 2nd matrix: '))
+        try:
+            if col1 != row2:
+                raise MatrixMultipltionException
+            else:
+                cont = False
+        except MatrixMultipltionException as e:
+            print(e.message)
+            cont = True
 
-a = [[random.randint(0, 10) for x in range(col1)] for y in range(row1)]
-b = [[random.randint(0, 10) for x in range(col2)] for y in range(row2)]
+    print('Computing ...')
 
-a = Matrix(a)
-b = Matrix(b)
+    a = [[random.randint(0, 10) for x in range(col1)] for y in range(row1)]
+    b = [[random.randint(0, 10) for x in range(col2)] for y in range(row2)]
 
-pprint(ml.mul(a.matrix, b.matrix))
+    a = Matrix(a)
+    b = Matrix(b)
 
-p = Process(target=f, args=(num, arr))
+    pprint(ml.mul(a.matrix, b.matrix))
 
-ls = FixMatrix(a, b)
-a = ls[0]
-b = ls[1]
+    ls = FixMatrix(a, b)
+    a = ls[0]
+    b = ls[1]
 
-pprint((a * b).matrix)
-print()
-pprint(time_dict)
+    pprint((a * b).matrix)
+    print()
+    pprint(time_dict)
 
-# print("--- %s seconds ---" % (time.time() - start_time))
-Plot(time_dict, normMultTime)
+    Plot(time_dict, normMultTime)

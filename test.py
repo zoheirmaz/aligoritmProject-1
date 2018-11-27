@@ -8,10 +8,6 @@ def f(t):
 
 
 def Plot(stra, norm):
-    # plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
-    # plt.ylabel('some numbers')
-    # plt.show()
-
     listK1, listI1, listK2, listI2 = [], [], [], []
 
     list1 = list(stra.items())
@@ -24,6 +20,8 @@ def Plot(stra, norm):
         a = list1.pop()
         listK1.append(a[0])
         listI1.append(a[1])
+    listK1.append(0)
+    listI1.append(0)
 
     while list2.__len__() != 0:
         a = list2.pop()
@@ -33,24 +31,6 @@ def Plot(stra, norm):
     # pprint(lists)
     # pprint(lists2)
 
-    # x, y = zip(*lists)  # unpack a list of pairs into two tuples
-    # s, p = zip(*lists2)
-
-    # n = [0, 1]
-    # m = [0, 1]
-    # v = [0, 1]
-    # w = [0, 2]
-
-    # plt.subplot(2, 1, 1)
-    # lines = plt.plot(x, y, s, p, 'o-')
-    # lines = plt.plot(n, m, v, w, 'o-')
-
-
-    # plt.setp(lines[0], linewidth=4)
-    # plt.setp(lines[1], linewidth=2)
-
-    # plt.subplot(2, 1, 1)
-    # plt.plot(s, p, '.-')
     listK1.reverse()
     listI1.reverse()
     # listK2.reverse()
