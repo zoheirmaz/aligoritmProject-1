@@ -62,13 +62,20 @@ class Matrix:
         if self.row <= 256:
 
             result = [[0 for x in range(other.matrix[0].__len__())] for y in range(self.matrix.__len__())]
+
+            x=self.matrix
+            y=other.matrix
+
+            ln1 = len(x)
+            ln2 = len(y[0])
+            ln3 = len(y)
+
             start_time = time.time()
-            for i in range(len(self.matrix)):
 
-                for j in range(len(other.matrix[0])):
-
-                    for k in range(len(other.matrix)):
-                        result[i][j] += self.matrix[i][k] * other.matrix[k][j]
+            for i in range(ln1):
+                for j in range(ln2):
+                    for k in range(ln3):
+                        result[i][j] += x[i][k] * y[k][j]
 
             time_dict[str(self.row)] = (time.time() - start_time)
 

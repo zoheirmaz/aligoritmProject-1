@@ -75,15 +75,15 @@ if __name__ == '__main__':
             print(e.message)
             cont = True
 
-    print('Computing ...')
-
     a = [[random.randint(0, 10) for x in range(col1)] for y in range(row1)]
     b = [[random.randint(0, 10) for x in range(col2)] for y in range(row2)]
 
+    print('Computing ...')
+
+    pprint(ml.mul(a, b))
+
     a = Matrix(a)
     b = Matrix(b)
-
-    pprint(ml.mul(a.matrix, b.matrix))
 
     ls = FixMatrix(a, b)
     a = ls[0]

@@ -6,10 +6,13 @@ import globalVar
 
 def mul(X, Y):
     result = [[0 for x in range(Y[0].__len__())] for y in range(X.__len__())]
-    start_time = time.time()
+
     ln1 = len(X)
     ln2 = len(Y[0])
     ln3 = len(Y)
+
+    start_time = time.time()
+
     for i in range(ln1):
 
         for j in range(ln2):
